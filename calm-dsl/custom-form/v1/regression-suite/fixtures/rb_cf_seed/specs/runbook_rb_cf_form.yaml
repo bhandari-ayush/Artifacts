@@ -1,0 +1,15 @@
+name: rb_cf_form
+description: regression seed runbook custom form
+resources:
+  type: USER
+  schema:
+    type: object
+    properties:
+      branch:
+        type: string
+        default: main
+  uischema:
+    type: VerticalLayout
+    elements:
+      - type: Control
+        scope: '#/properties/branch'

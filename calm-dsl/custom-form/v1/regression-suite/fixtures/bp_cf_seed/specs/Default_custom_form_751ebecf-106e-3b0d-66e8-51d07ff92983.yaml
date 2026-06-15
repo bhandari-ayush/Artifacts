@@ -1,0 +1,14 @@
+name: custom_form_751ebecf-106e-3b0d-66e8-51d07ff92983
+description: ''
+resources:
+  type: USER
+  schema:
+  uischema:
+    type: Group
+    id: group_a9a0a044-e927-7de1-11f9-25566764a75b
+    elements:
+      - type: Control
+        variant: text
+        label: Text Input
+        options: {}
+        id: control_aca0c213-1dc5-9ecf-e76f-3e0e050d0dca
