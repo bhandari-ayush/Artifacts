@@ -1,0 +1,12 @@
+layer,entity,test_or_flow,where,count_or_result,status,notes
+unit,blueprint+runbook,in-tree unit suite (test_custom_form.py + test_decompile_runbook_specs_dir.py + http var),calm-dsl/tests/unit,61,PASS,offline; pytest -o addopts=""
+regression,blueprint+runbook+mpi,out-of-tree regression suite (existing 52 + 13 follow-up),eng-924013-regression/tests,65,PASS,5/5 iterations green
+regression,blueprint,form-named spec filename (R1),test_eng924013_followup.py,1,PASS,specs/<profile>_<form>.yaml
+regression,blueprint+runbook,use_custom_form retained + launch warning (R2),test_eng924013_followup.py,1,PASS,
+regression,blueprint,runtime-var JSON generation + -l JSON parse + dynamic short-circuit (R3),test_eng924013_followup.py,1,PASS,decompile->launch end-to-end static & dynamic
+regression,blueprint,spec_file= resolution (R5),test_eng924013_followup.py,1,PASS,
+regression,api,CustomFormAPI read-only contract (read/list ok; write raises),test_customform_api_sanity.py,9,PASS,
+server,blueprint,compile->create->decompile(retained,R1,R3)->edit->recompile->reupload(v2)->launch->RUNNING,PC 10.103.243.86 (4.4.0),1,PASS,real AHV VM
+server,runbook,compile->create with custom form (no 422)->decompile (retained, R1),PC 10.103.243.86 (4.4.0),1,PASS,422 was old container pre ENG-892908
+server,marketplace,publish(Backup)->approve->store->form retained->clone/launch->RUNNING,PC 10.103.243.86 (4.4.0),1,PASS,reuses launch_blueprint_simple
+quality,all,black --check on touched .py files,calm-dsl,clean,PASS,jinja/yaml excluded
